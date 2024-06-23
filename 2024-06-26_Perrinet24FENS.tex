@@ -20,10 +20,7 @@
 \newcommand{\Keywords}{time code, event-based computations, spiking neural networks, motion detection, efficient coding, logistic regression
 }
 \newcommand{\Funding}{
-This research was funded by the European Union ERA-NET CHIST-ERA 2018 research and innovation program under grant agreement ANR-19-CHR3-0008-03 (``\href{APROVIS3D}{http://aprovis3d.eu/}''). 
-LP received funding from the ANR project ANR-20-CE23-0021 (``\href{AgileNeuroBot}{https://laurentperrinet.github.io/grant/anr-anr/}'')
-and from A*Midex grant number AMX-21-RID-025
-(``\href{Polychronies}{https://laurentperrinet.github.io/grant/polychronies/}''). 
+This research was funded by ANR project AgileNeuRobot ANR-20-CE23-0021 (\href{https://laurentperrinet.github.io/grant/anr-anr}{https://laurentperrinet.github.io/grant/anr-anr}) and from A*Midex grant ``Polychronies'' number AMX-21-RID-025 (\href{https://laurentperrinet.github.io/grant/polychronies}{https://laurentperrinet.github.io/grant/polychronies}). 
 }
 \newcommand{\Acknowledgments}{
 The authors thank Salvatore Giancani, Hugo Ladret, Camille Besnainou, Jean-Nicolas Jérémie, Miles Keating, and Adrien Fois for useful discussions during the elaboration of this work. 
@@ -63,8 +60,9 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
   \usepackage[
 %  style=chem-acs,
-  style=numeric-comp,
-%  style=numeric,						% numeric style for reference list
+%style=authoryear,
+%  style=numeric-comp,
+  style=numeric,						% numeric style for reference list
 %  style=apa,
 %  citestyle=numeric-comp,
   %style=alphabetic-verb,
@@ -97,7 +95,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 % \usepackage{natbib}
 
-\addbibresource{2024-06-26_Perrinet24FENS}
+\addbibresource{2024-06-26_Perrinet24FENS.bib}
 
 % ====================
 % Lengths
@@ -122,7 +120,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 \author{\FirstLP\  \LastLP}
 
-\institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
+\institute[shortinst]{\Department, \Affiliation,  \Street, \City\ \Country}
 
 % ====================
 % Footer (optional)
@@ -130,9 +128,8 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 \footercontent{
   \href{https://laurentperrinet.github.io/publication/perrinet-24-fens/}{https://laurentperrinet.github.io/publication/perrinet-24-fens/} \hfill
-  FENS Forum Conference 2024, Vienna \hfill
-  \href{mailto:\EmailLP}{\EmailLP} \includegraphics[height=2cm]{figures/qr_code.png} 
-  }
+  FENS Forum Conference 2024, Vienna \includegraphics[height=2.5cm]{figures/qr_code.png}  \hfill
+  \href{mailto:\EmailLP}{\EmailLP}   }
 % (can be left out to remove footer)
 
 % ====================
@@ -178,9 +175,9 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %    \end{figure}
 
     \begin{figure}[H]%[t!]
-      %  \centering ~\textcite{izhikevich_polychronization_2006}
-        \includegraphics[width=0.980\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
-          \caption{\textbf{Core mechanism of polychrony detection}. {(\textit{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textit{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
+      %  \centering 
+        \includegraphics[width=0.900\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
+          \caption{\textbf{Core mechanism of polychrony detection~\textcite{izhikevich_polychronization_2006}.} {(\textit{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textit{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
           %at these different delays, and these may not be sufficient to generate a spike in either neuron.
           {(\textit{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
            }
@@ -235,14 +232,16 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
 %
 %  \end{alertblock}
-
+  \begin{alertblock}{Acknowledgments}
+  \Funding
+  \end{alertblock}
 \end{column}
 
 \separatorcolumn
 
 \begin{column}{\colwidth}
 
-   \begin{block}{Heterogeneous Delays Spiking Neural Network (HD-SNN)~\textcite{Grimaldi23BC}}
+   \begin{block}{Heterogeneous Delays Spiking Neural Network (HD-SNN)~\parencite{Grimaldi23BC}}
 
   %   Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
   %   interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
@@ -277,8 +276,9 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %\begin{wrapfigure}{R}{0.31\textwidth}
 	{ \centering
 	\includegraphics[width=.9\textwidth]{figures/event_driven_computations.pdf}
-	\caption{\small %\footnotesize
-	A miniature, event-based ATIS sensor. Contrary to a classical frame-based camera for which a full dense image representation is given at discrete, regularly spaced timings, the event-based camera provides with events at the micro-second resolution. These are sparse as they represent luminance increments or decrements (ON and OFF events, respectively).
+	\caption{\small %\footnotesize        
+	\textbf{ Event-based cameras.}
+	A miniature ATIS sensor. Contrary to a classical frame-based camera for which a full dense image representation is given at discrete, regularly spaced timings, the event-based camera provides with events at the micro-second resolution. These are sparse as they represent luminance increments or decrements (ON and OFF events, respectively).
 	}
 	\label{fig:silicon_retina}
 		}
@@ -290,7 +290,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
     \centering
     \includegraphics[width=0.95\linewidth]{figures/motion_task.pdf}
     \caption{
-        {\bf Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps .% (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset).
+       \textbf{ Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps .% (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset).
          Mimicking the response of ganglion cells in the retina, this representation encodes at each pixel all-or-none increases or decreases in luminance, i.e., ON (red) and OFF (blue) spikes. In the lower left corner of the snapshots, we show the corresponding instantaneous motion vector (red arrow). %Note the change in the direction of motion between the third and fourth frames, and also that contours parallel to the motion produce fewer luminance changes, the so-called aperture problem, and thus relatively fewer spikes.
         }
     \label{fig:motion_task}
@@ -370,7 +370,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
 
 \begin{column}{\colwidth}
 
-  \begin{exampleblock}{Detection of Spiking Motifs by Learning a HD-SNN~\textcite{Perrinet23ICANN}}
+  \begin{exampleblock}{Detection of Spiking Motifs by Learning a HD-SNN~\parencite{Perrinet23ICANN}}
 
 %
 %    A different kind of highlighted block.
@@ -450,20 +450,21 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %
 %  \end{block}
 
+\nocite{*}
 %  \begin{block}{References}
-%    % \nocite{*}
+%    
 %    \footnotesize{
 %%    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
 %     \printbibliography[heading=none]
 % }
 %  \end{block}
- \begin{alertblock}{References}
+ \begin{block}{References}
     % \nocite{*}
     \footnotesize{
 %    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
      \printbibliography[heading=none]
  }
-\end{alertblock}
+\end{block}
 
 \end{column}
 
