@@ -45,7 +45,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \usepackage{lmodern}
 \usepackage[size=custom,width=120,height=72,scale=1.0]{beamerposter}
 \usetheme{gemini}
-\usecolortheme{gemini}
+\usecolortheme{mit}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tikz} 
@@ -114,7 +114,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 % Title
 % ====================
 
-\title{Accurate Detection of Spiking Motifs in Neurobiological Data by Learning Heterogeneous Delays
+\title{Accurate Detection of Spiking Motifs in Neurobiological Data \\ by Learning Heterogeneous Delays
 % of a Spiking Neural Network
 }
 
@@ -122,14 +122,22 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 \institute[shortinst]{\Department, \Affiliation,  \Street, \City\ \Country}
 
+\logoright{
+	  \includegraphics[height=10.0cm]{figures/qr_code.png}  
+}
+
+\logoleft{
+	  \includegraphics[height=10.0cm]{figures/LogoINT.pdf}  
+}
 % ====================
 % Footer (optional)
 % ====================
 
 \footercontent{
   \href{https://laurentperrinet.github.io/publication/perrinet-24-fens/}{https://laurentperrinet.github.io/publication/perrinet-24-fens/} \hfill
-  FENS Forum Conference 2024, Vienna \includegraphics[height=2.5cm]{figures/qr_code.png}  \hfill
-  \href{mailto:\EmailLP}{\EmailLP}   }
+  FENS Forum Conference 2024, Vienna   \hfill
+  \href{mailto:\EmailLP}{\EmailLP} 
+  }
 % (can be left out to remove footer)
 
 % ====================
@@ -233,8 +241,22 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %
 %  \end{alertblock}
   \begin{alertblock}{Acknowledgments}
-  \Funding
+%  
+%  \separatorcolumn
+%
+%\begin{columns}%[t]
+%%\separatorcolumn
+%\begin{column}{.07\colwidth}
+%	  \includegraphics[height=4.0cm]{figures/qr_code.png}  
+%\end{column}
+%
+%\separatorcolumn
+%\begin{column}{.80\colwidth}
+ 	 \Funding	
+%\end{column}
+%\end{columns}
   \end{alertblock}
+
 \end{column}
 
 \separatorcolumn
@@ -300,7 +322,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
 \begin{columns}[t]
 \separatorcolumn
 
-\begin{column}{.48\colwidth}
+\begin{column}{.46\colwidth}
 
 \begin{figure}
     {\centering
@@ -315,7 +337,9 @@ The timing of the spikes produced following the repetition of a step stimulus is
 \end{figure} 
 \end{column}
 %
-\begin{column}{.48\colwidth}
+\separatorcolumn
+
+\begin{column}{.46\colwidth}
 \begin{figure}%[h!]
     \centering
     \includegraphics[width=0.9\linewidth]{figures/quant_accuracy.pdf}
