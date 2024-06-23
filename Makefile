@@ -1,9 +1,9 @@
 .PHONY: main clean FORCE
 
-main: poster.pdf
+main: 2024-06-26_Perrinet24FENS.pdf
 
-poster.pdf: FORCE
-	latexmk -pdflatex='lualatex -interaction nonstopmode' -pdf poster.tex
+2024-06-26_Perrinet24FENS.pdf: FORCE
+	latexmk -pdflatex='lualatex -interaction nonstopmode' -pdf 2024-06-26_Perrinet24FENS.tex
 
 clean:
 	latexmk -pdf -C

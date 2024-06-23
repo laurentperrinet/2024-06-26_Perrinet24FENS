@@ -19,4 +19,4 @@ jobs:
           texlive-xetex
           latexmk
       - uses: actions/checkout@v2
-      - run: make poster.pdf
+      - run: make 2024-06-26_Perrinet24FENS.pdf

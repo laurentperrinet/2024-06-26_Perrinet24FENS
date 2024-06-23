@@ -61,38 +61,40 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \newcommand{\ms}{\si{\milli\second}}%
 
 
- \usepackage[
- %style=chem-acs,
- style=numeric,						% numeric style for reference list
- citestyle=numeric-comp,
- %style=alphabetic-verb,
- giveninits=false,
- maxbibnames=1,
- %firstinits=true,
- %style=apa,
- %maxcitenames=1,
- %maxnames=3,
- %minnames=1,
- %maxbibnames=99,
-% %maxbibnames=99,
-% dateabbrev=true,
-% giveninits=true,
- %uniquename=init,
-% url=false,
-% doi=false,
-% isbn=false,
-% eprint=false,
-% texencoding=utf8,
-% bibencoding=utf8,
-% autocite=superscript,
-% backend=biber,
- %sorting=none,
- sorting=none,
- sortcites=false,
- %articletitle=false
- ]{biblatex}%
+%  \usepackage[
+%  %style=chem-acs,
+%  style=numeric,						% numeric style for reference list
+%  citestyle=numeric-comp,
+%  %style=alphabetic-verb,
+%  giveninits=false,
+%  maxbibnames=1,
+%  %firstinits=true,
+%  %style=apa,
+%  %maxcitenames=1,
+%  %maxnames=3,
+%  %minnames=1,
+%  %maxbibnames=99,
+% % %maxbibnames=99,
+% % dateabbrev=true,
+% % giveninits=true,
+%  %uniquename=init,
+% % url=false,
+% % doi=false,
+% % isbn=false,
+% % eprint=false,
+% % texencoding=utf8,
+% % bibencoding=utf8,
+% % autocite=superscript,
+% % backend=biber,
+%  %sorting=none,
+%  sorting=none,
+%  sortcites=false,
+%  %articletitle=false
+%  ]{biblatex}%
 
- \bibliography{poster}
+ \usepackage{natbib}
+
+ \bibliography{2024-06-26_Perrinet24FENS}
 
 % ====================
 % Lengths
@@ -125,8 +127,8 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 \footercontent{
   \href{https://laurentperrinet.github.io/publication/perrinet-24-fens/}{https://laurentperrinet.github.io/publication/perrinet-24-fens/} \hfill
-  ABC Conference 2025, New York --- XYZ-1234 \hfill
-  \href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
+  FENS Forum Conference 2024, Vienna \hfill
+  \href{mailto:\EmailLP}{\EmailLP}}
 % (can be left out to remove footer)
 
 % ====================
@@ -161,7 +163,10 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \end{figure}
 
 
-    Some block contents, followed by a diagram, followed by a dummy paragraph. %~\textcite{Grimaldi22polychronies}
+    Some block contents, followed by a diagram, followed by a dummy paragraph. 
+    
+    ~\cite{Grimaldi22polychronies}
+    % ~\textcite{Grimaldi22polychronies}
 
 %    \begin{figure}
 %      \centering
@@ -176,7 +181,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
     \begin{figure}[H]%[t!]
       %  \centering ~\textcite{izhikevich_polychronization_2006}
         \includegraphics[width=0.980\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
-          \caption{\textbf{\hl{Core mechanism of polychrony detection}.} {(\textbf{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textbf{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
+          \caption{\textbf{Core mechanism of polychrony detection}. {(\textbf{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textbf{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
           %at these different delays, and these may not be sufficient to generate a spike in either neuron.
           {(\textbf{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
            }
@@ -398,8 +403,8 @@ This work is made reproducible. The code reproducing the manuscript and all figu
   \begin{block}{References}
     % \nocite{*}
     \footnotesize{
-    %\bibliographystyle{plain}\bibliography{poster}
-    \printbibliography[heading=none]
+    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
+    % \printbibliography[heading=none]
  }
 
   \end{block}
