@@ -185,12 +185,12 @@ The timing of the spikes produced following the repetition of a step stimulus is
         \label{fig:izhikevich}
       \end{figure}
       %
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
-    eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
-    lobortis augue, ut lobortis turpis rhoncus sed. Proin feugiat nibh a
-    lacinia dignissim. Proin scelerisque, risus eget tempor fermentum, ex
-    turpis condimentum urna, quis malesuada sapien arcu eu purus.
+%
+%    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
+%    eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
+%    lobortis augue, ut lobortis turpis rhoncus sed. Proin feugiat nibh a
+%    lacinia dignissim. Proin scelerisque, risus eget tempor fermentum, ex
+%    turpis condimentum urna, quis malesuada sapien arcu eu purus.
 
   \end{block}
 
@@ -240,41 +240,64 @@ The timing of the spikes produced following the repetition of a step stimulus is
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block containing an enumerated list}
+   \begin{block}{Heterogeneous Delays Spiking Neural Network (HD-SNN)~\textcite{Grimaldi23BC}}
 
-    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
-    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
-    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
-    fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
-    mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
-    bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
-    commodo in metus.
+  %   Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
+  %   interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
+  %   ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
+  %   fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
+  %   mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
+  %   bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
+  %   commodo in metus.
 
-    \begin{enumerate}
-      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
-        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
-        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
-        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
-      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
-        nulla accumsan, non rhoncus lectus condimentum.
-    \end{enumerate}
+  %   \begin{enumerate}
+  %     \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
+  %       accumsan orci. Orci varius natoque penatibus et magnis dis parturient
+  %       montes, nascetur ridiculus mus.
+  %     \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
+  %       massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
+  %       velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
+  %     \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
+  %       nulla accumsan, non rhoncus lectus condimentum.
+  %   \end{enumerate}
 
-  \end{block}
+  % \end{block}
 
-  \begin{block}{Fusce aliquam magna velit}
+  % \begin{block}{Fusce aliquam magna velit}
 
-    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
-    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
-    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
-    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
-    posuere.
+  %   Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
+  %   vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
+  %   velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
+  %   molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
+  %   posuere.
+
+\begin{figure}%[h!]%[htbt]
+%\begin{wrapfigure}{R}{0.31\textwidth}
+	{ \centering
+	\includegraphics[width=.9\textwidth]{figures/event_driven_computations.pdf}
+	\caption{\small %\footnotesize
+	A miniature, event-based ATIS sensor. Contrary to a classical frame-based camera for which a full dense image representation is given at discrete, regularly spaced timings, the event-based camera provides with events at the micro-second resolution. These are sparse as they represent luminance increments or decrements (ON and OFF events, respectively).
+	}
+	\label{fig:silicon_retina}
+		}
+\end{figure}
+%%%-----------------------------------------------------------------
+%: fig:motion_task
+%%%-----------------------------------------------------------------
+\begin{figure}%
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/motion_task.pdf}
+    \caption{
+        {\bf Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset). Mimicking the response of ganglion cells in the retina, this representation encodes at each pixel all-or-none increases or decreases in luminance, i.e., ON (red) and OFF (blue) spikes. In the lower left corner of the snapshots, we show the corresponding instantaneous motion vector (red arrow). Note the change in the direction of motion between the third and fourth frames, and also that contours parallel to the motion produce fewer luminance changes, the so-called aperture problem, and thus relatively fewer spikes.
+        }
+    \label{fig:motion_task}
+\end{figure}
+%%%-----------------------------------------------------------------
 
 \begin{columns}[t]
 \separatorcolumn
 
-\begin{column}{\colwidth}
+\begin{column}{.5\colwidth}
 
 \begin{figure}
     {\centering
@@ -289,7 +312,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
 \end{figure} 
 \end{column}
 %
-\begin{column}{\colwidth}
+\begin{column}{.5\colwidth}
 \begin{figure}%[h!]
     \centering
     \includegraphics[width=0.95\linewidth]{figures/quant_accuracy.pdf}
@@ -344,32 +367,46 @@ The timing of the spikes produced following the repetition of a step stimulus is
 
 \begin{column}{\colwidth}
 
-  \begin{exampleblock}{A highlighted block containing some math}
+  \begin{exampleblock}{Detection of Spiking Motifs by Learning a HD-SNN~\textcite{Perrinet23ICANN}}
 
-    A different kind of highlighted block.
-
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
-
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
-
-    \heading{A heading inside a block}
-
-    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
-    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
-    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
-    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
-
-    \heading{Another heading inside a block}
-
-    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
-    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
-    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
-    justo.
-
+%
+%    A different kind of highlighted block.
+%
+%    $$
+%    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
+%    $$
+%
+%    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
+%    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
+%    felis id vulputate.
+%
+%    \heading{A heading inside a block}
+%
+%    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
+%    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
+%    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
+%    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
+%
+%    \heading{Another heading inside a block}
+%
+%    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
+%    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
+%    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
+%    justo.
+%---------------------------
+\begin{figure}%[t]%[h!]
+% \begin{center}
+  \includegraphics[width=.50\colwidth]{figures/THC_toy-a_k.pdf}
+  \includegraphics[width=.50\colwidth]{figures/THC_toy-b.pdf}
+  \\
+  \includegraphics[width=.50\colwidth]{figures/THC_toy-c.pdf}
+  \includegraphics[width=.50\colwidth]{figures/THC_toy-a.pdf} 
+% \end{center}
+\caption{\textbf{From generating raster plots to inferring spiking motifs}. \textit{(a)}~As an illustration for the generative model, we draw a multiunit raster plot synthesized from $4$ different spiking motifs and for $10$ presynaptic neurons. \textit{(b)}~We show these motifs, each identified at the top by a different color. The evidence of activation (red) or deactivation (blue) is assigned to each presynaptic neuron and $31$ different possible delays. \textit{(c)}~The activation in time of the different motifs (denoted by stars) is drawn at random and then used to generate a raster plot on the multi-unit address space (see panel a). By inverting this model, an inference model can be defined for their efficient detection, outputting an evidence value (continuous line) from which the identity and timing of SMs can be inferred (vertical bars). \textit{(d)}~The original raster plot can be annotated with each identified spiking motif (as represented by the respective color assigned to SMs).
+}
+\label{fig:THC}
+\end{figure}
+%---------------------------
   \end{exampleblock}
 
   \begin{block}{Nullam vel erat at velit convallis laoreet}
