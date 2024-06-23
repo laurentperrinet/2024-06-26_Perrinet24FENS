@@ -62,14 +62,15 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 
   \usepackage[
-  %style=chem-acs,
-  style=numeric,						% numeric style for reference list
-  citestyle=numeric-comp,
+%  style=chem-acs,
+  style=numeric-comp,
+%  style=numeric,						% numeric style for reference list
+%  style=apa,
+%  citestyle=numeric-comp,
   %style=alphabetic-verb,
-  giveninits=false,
-  maxbibnames=1,
+%  giveninits=false,
+%  maxbibnames=1,
   %firstinits=true,
-  %style=apa,
   %maxcitenames=1,
   %maxnames=3,
   %minnames=1,
@@ -79,6 +80,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
  % giveninits=true,
   %uniquename=init,
  % url=false,
+ url=true,
  % doi=false,
  % isbn=false,
  % eprint=false,
@@ -95,7 +97,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 % \usepackage{natbib}
 
- \bibliography{2024-06-26_Perrinet24FENS}
+\addbibresource{2024-06-26_Perrinet24FENS}
 
 % ====================
 % Lengths
@@ -160,7 +162,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 %\centering
 \includegraphics[width=\textwidth]{figures/replicating_MainenSejnowski1995.pdf} 
 \caption{
-  Reproducibility of the spiking response of a neuron. 
+ \textbf{Reproducibility of the spiking response of a neuron.} 
 The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when light yellow colors when depolarized) and quantified by the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. See this~\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{online notebook}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
 \end{figure}
     
@@ -178,9 +180,9 @@ The timing of the spikes produced following the repetition of a step stimulus is
     \begin{figure}[H]%[t!]
       %  \centering ~\textcite{izhikevich_polychronization_2006}
         \includegraphics[width=0.980\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
-          \caption{\textbf{Core mechanism of polychrony detection}. {(\textbf{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textbf{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
+          \caption{\textbf{Core mechanism of polychrony detection}. {(\textit{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textit{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
           %at these different delays, and these may not be sufficient to generate a spike in either neuron.
-          {(\textbf{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
+          {(\textit{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
            }
         \label{fig:izhikevich}
       \end{figure}
@@ -288,7 +290,8 @@ The timing of the spikes produced following the repetition of a step stimulus is
     \centering
     \includegraphics[width=0.95\linewidth]{figures/motion_task.pdf}
     \caption{
-        {\bf Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset). Mimicking the response of ganglion cells in the retina, this representation encodes at each pixel all-or-none increases or decreases in luminance, i.e., ON (red) and OFF (blue) spikes. In the lower left corner of the snapshots, we show the corresponding instantaneous motion vector (red arrow). Note the change in the direction of motion between the third and fourth frames, and also that contours parallel to the motion produce fewer luminance changes, the so-called aperture problem, and thus relatively fewer spikes.
+        {\bf Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps .% (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset).
+         Mimicking the response of ganglion cells in the retina, this representation encodes at each pixel all-or-none increases or decreases in luminance, i.e., ON (red) and OFF (blue) spikes. In the lower left corner of the snapshots, we show the corresponding instantaneous motion vector (red arrow). %Note the change in the direction of motion between the third and fourth frames, and also that contours parallel to the motion produce fewer luminance changes, the so-called aperture problem, and thus relatively fewer spikes.
         }
     \label{fig:motion_task}
 \end{figure}
@@ -297,27 +300,27 @@ The timing of the spikes produced following the repetition of a step stimulus is
 \begin{columns}[t]
 \separatorcolumn
 
-\begin{column}{.5\colwidth}
+\begin{column}{.48\colwidth}
 
 \begin{figure}
     {\centering
     %\vspace{-3cm}
-    \includegraphics[width=\linewidth]{figures/motion_kernels.pdf}
+    \includegraphics[width=.9\linewidth]{figures/motion_kernels.pdf}
     }
     %\vspace{-.5cm}
     \caption{
-    	Representation of the weights for $8$ directions for a single speed (among the $12 \times 3$ different kernels of the model) as learned on the dataset of naturalistic scenes. The directions are shown as red arrows in the left insets, where the disks correspond to the set of different possible motions. The spatiotemporal kernels are shown as slices of spatial weights at different delays. Delays vary along the horizontal axis from the far right (delay of one step) to the left (up to a delay of $12$ steps, the remaining synapses being not represented). Each image corresponds to the weights at a given delay, with excitatory and inhibitory weights in warm and cold colors, respectively. Due to the symmetry between the ON and OFF event streams, we observed that the kernels for the OFF polarities are very similar and are not shown here.	Different kernels are selective for the different motion directions, and we observe a slight orientation preference perpendicular to the respective direction for all kernels.
+    	Representation of the weights for $8$ directions for a single speed (among the $12 \times 3$ different kernels of the model) as learned on the dataset of naturalistic scenes. The directions are shown as red arrows in the left insets, where the disks correspond to the set of different possible motions. The spatiotemporal kernels are shown as slices of spatial weights at different delays. Delays vary along the horizontal axis from the far right (delay of one step) to the left (up to a delay of $12$ steps, the remaining synapses being not represented). %Each image corresponds to the weights at a given delay, with excitatory and inhibitory weights in warm and cold colors, respectively. Due to the symmetry between the ON and OFF event streams, we observed that the kernels for the OFF polarities are very similar and are not shown here.	Different kernels are selective for the different motion directions, and we observe a slight orientation preference perpendicular to the respective direction for all kernels.
 	}
     \label{fig:kernels}
 \end{figure} 
 \end{column}
 %
-\begin{column}{.5\colwidth}
+\begin{column}{.48\colwidth}
 \begin{figure}%[h!]
     \centering
-    \includegraphics[width=0.95\linewidth]{figures/quant_accuracy.pdf}
+    \includegraphics[width=0.9\linewidth]{figures/quant_accuracy.pdf}
     \caption{
-        Accuracy as a function of computational load for the HD-SNN model (blue dots) with error bars indicating the 5\% - 95\% quantiles and a sigmoid fit (blue line). The relative computational load (on a logarithmic axis) is controlled by changing the percentage of nonzero weights relative to the dense convolution kernel. If we shorten the length of the kernel by using only the weights at the shortest delays, the accuracy quickly drops. However, if we prune the lowest coefficients from the whole kernel, we observe a stable accuracy value, with a drop to half-saturation observed at about $670$ times fewer computations.
+        Accuracy as a function of computational load for the HD-SNN model (blue dots) with error bars indicating the 5\% - 95\% quantiles and a sigmoid fit (blue line). The relative computational load (on a logarithmic axis) is controlled by changing the percentage of nonzero weights relative to the dense convolution kernel. If we shorten the length of the kernel by using only the weights at the shortest delays, the accuracy quickly drops. %However, if we prune the lowest coefficients from the whole kernel, we observe a stable accuracy value, with a drop to half-saturation observed at about $670$ times fewer computations.
         }
     \label{fig:accuracy}
 \end{figure}
@@ -396,11 +399,11 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %---------------------------
 \begin{figure}%[t]%[h!]
 % \begin{center}
-  \includegraphics[width=.50\colwidth]{figures/THC_toy-a_k.pdf}
-  \includegraphics[width=.50\colwidth]{figures/THC_toy-b.pdf}
+  \includegraphics[width=.40\colwidth]{figures/THC_toy-a_k.pdf}
+  \includegraphics[width=.40\colwidth]{figures/THC_toy-b.pdf}
   \\
-  \includegraphics[width=.50\colwidth]{figures/THC_toy-c.pdf}
-  \includegraphics[width=.50\colwidth]{figures/THC_toy-a.pdf} 
+  \includegraphics[width=.40\colwidth]{figures/THC_toy-c.pdf}
+  \includegraphics[width=.40\colwidth]{figures/THC_toy-a.pdf} 
 % \end{center}
 \caption{\textbf{From generating raster plots to inferring spiking motifs}. \textit{(a)}~As an illustration for the generative model, we draw a multiunit raster plot synthesized from $4$ different spiking motifs and for $10$ presynaptic neurons. \textit{(b)}~We show these motifs, each identified at the top by a different color. The evidence of activation (red) or deactivation (blue) is assigned to each presynaptic neuron and $31$ different possible delays. \textit{(c)}~The activation in time of the different motifs (denoted by stars) is drawn at random and then used to generate a raster plot on the multi-unit address space (see panel a). By inverting this model, an inference model can be defined for their efficient detection, outputting an evidence value (continuous line) from which the identity and timing of SMs can be inferred (vertical bars). \textit{(d)}~The original raster plot can be annotated with each identified spiking motif (as represented by the respective color assigned to SMs).
 }
@@ -409,52 +412,58 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %---------------------------
   \end{exampleblock}
 
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
+%  \begin{block}{Nullam vel erat at velit convallis laoreet}
+%
+%    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+%    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
+%    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+%
+%    \begin{table}
+%      \centering
+%      \begin{tabular}{l r r c}
+%        \toprule
+%        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
+%        \midrule
+%        Foo & 13.37 & 384,394 & $\alpha$ \\
+%        Bar & 2.17 & 1,392 & $\beta$ \\
+%        Baz & 3.14 & 83,742 & $\delta$ \\
+%        Qux & 7.59 & 974 & $\gamma$ \\
+%        \bottomrule
+%      \end{tabular}
+%      \caption{A table caption.}
+%    \end{table}
+%
+%    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
+%    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
+%    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
+%    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
+%    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
+%    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
+%    ad litora torquent per conubia nostra, per inceptos himenaeos.
+%
+%    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
+%    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
+%    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
+%    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
+%    auctor urna non, tempus sem.
+%
+%
+%  \end{block}
 
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
-    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
-
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
-
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
-
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
-
-
-  \end{block}
-
-  \begin{block}{References}
+%  \begin{block}{References}
+%    % \nocite{*}
+%    \footnotesize{
+%%    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
+%     \printbibliography[heading=none]
+% }
+%  \end{block}
+ \begin{alertblock}{References}
     % \nocite{*}
     \footnotesize{
 %    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
      \printbibliography[heading=none]
  }
-
-  \end{block}
+\end{alertblock}
 
 \end{column}
 
