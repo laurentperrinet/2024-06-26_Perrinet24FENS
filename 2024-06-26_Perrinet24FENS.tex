@@ -1,5 +1,5 @@
 % !TEX encoding = UTF-8 Unicode
-% !TeX TS-program = lualatex
+% !TEX TS-program = lualatexmk
 % !TeX spellcheck = en-US
 % !BIB TS-program = bibtex
 % -*- coding: UTF-8; -*-
@@ -51,10 +51,10 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \usecolortheme{gemini}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{tikz}
+\usepackage{tikz} 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
-\usepackage{anyfontsize}
+\usepackage{anyfontsize} 
 % \usepackage{natbib}
 \usepackage{siunitx}%The siunitx package provides a  set  of  tools  for  authors  to  typeset  quantities  in  aconsistent  way.
 
@@ -129,7 +129,8 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \footercontent{
   \href{https://laurentperrinet.github.io/publication/perrinet-24-fens/}{https://laurentperrinet.github.io/publication/perrinet-24-fens/} \hfill
   FENS Forum Conference 2024, Vienna \hfill
-  \href{mailto:\EmailLP}{\EmailLP}}
+  \href{mailto:\EmailLP}{\EmailLP} \includegraphics[height=2cm]{figures/qr_code.png} 
+  }
 % (can be left out to remove footer)
 
 % ====================
@@ -160,7 +161,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \includegraphics[width=\textwidth]{figures/replicating_MainenSejnowski1995.pdf} 
 \caption{
   Reproducibility of the spiking response of a neuron. 
-The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when light yellow colors when depolarized) and quantified by the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. See this~\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{notebook}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
+The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when light yellow colors when depolarized) and quantified by the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. See this~\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{online notebook}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
 \end{figure}
     
 
@@ -270,60 +271,72 @@ The timing of the spikes produced following the repetition of a step stimulus is
     molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
     posuere.
 
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
-    \end{figure}
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+\begin{figure}
+    {\centering
+    %\vspace{-3cm}
+    \includegraphics[width=\linewidth]{figures/motion_kernels.pdf}
+    }
+    %\vspace{-.5cm}
+    \caption{
+    	Representation of the weights for $8$ directions for a single speed (among the $12 \times 3$ different kernels of the model) as learned on the dataset of naturalistic scenes. The directions are shown as red arrows in the left insets, where the disks correspond to the set of different possible motions. The spatiotemporal kernels are shown as slices of spatial weights at different delays. Delays vary along the horizontal axis from the far right (delay of one step) to the left (up to a delay of $12$ steps, the remaining synapses being not represented). Each image corresponds to the weights at a given delay, with excitatory and inhibitory weights in warm and cold colors, respectively. Due to the symmetry between the ON and OFF event streams, we observed that the kernels for the OFF polarities are very similar and are not shown here.	Different kernels are selective for the different motion directions, and we observe a slight orientation preference perpendicular to the respective direction for all kernels.
+	}
+    \label{fig:kernels}
+\end{figure} 
+\end{column}
+%
+\begin{column}{\colwidth}
+\begin{figure}%[h!]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/quant_accuracy.pdf}
+    \caption{
+        Accuracy as a function of computational load for the HD-SNN model (blue dots) with error bars indicating the 5\% - 95\% quantiles and a sigmoid fit (blue line). The relative computational load (on a logarithmic axis) is controlled by changing the percentage of nonzero weights relative to the dense convolution kernel. If we shorten the length of the kernel by using only the weights at the shortest delays, the accuracy quickly drops. However, if we prune the lowest coefficients from the whole kernel, we observe a stable accuracy value, with a drop to half-saturation observed at about $670$ times fewer computations.
+        }
+    \label{fig:accuracy}
+\end{figure}
+\end{column}
+\end{columns}
 
   \end{block}
 
-  \begin{block}{Nam cursus consequat egestas}
-
-    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-    sit amet sollicitudin risus tincidunt non.
-
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
-
-    \begin{itemize}
-      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-        sed est scelerisque, elementum mollis augue iaculis.
-        \begin{itemize}
-          \item In sed est finibus, vulputate
-            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-            porttitor quis.
-          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-            tempor tincidunt eu a arcu.
-          \item Donec rhoncus vestibulum erat, quis aliquam leo
-            gravida egestas.
-        \end{itemize}
-      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-        faucibus purus, sed lobortis justo erat id turpis.
-      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
-    \end{itemize}
-
-  \end{block}
+%  \begin{block}{Nam cursus consequat egestas}
+%
+%    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
+%    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
+%    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
+%    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
+%    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
+%    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
+%    sit amet sollicitudin risus tincidunt non.
+%
+%    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
+%    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
+%    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
+%    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
+%
+%    \begin{itemize}
+%      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
+%        sed est scelerisque, elementum mollis augue iaculis.
+%        \begin{itemize}
+%          \item In sed est finibus, vulputate
+%            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
+%            porttitor quis.
+%          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
+%            tempor tincidunt eu a arcu.
+%          \item Donec rhoncus vestibulum erat, quis aliquam leo
+%            gravida egestas.
+%        \end{itemize}
+%      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
+%        faucibus purus, sed lobortis justo erat id turpis.
+%      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
+%        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
+%    \end{itemize}
+%
+%  \end{block}
 
 \end{column}
 
