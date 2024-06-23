@@ -1,4 +1,41 @@
-% Gemini theme
+% !TEX encoding = UTF-8 Unicode
+% !TeX TS-program = lualatex
+% !TeX spellcheck = en-US
+% !BIB TS-program = bibtex
+% -*- coding: UTF-8; -*-
+% vim: set fenc=utf-8
+%
+\newcommand{\FirstLP}{Laurent Udo}
+\newcommand{\LastLP}{Perrinet}
+\newcommand{\AuthorLP}{\FirstLP \LastLP}
+\newcommand{\EmailLP}{laurent.perrinet@univ-amu.fr}
+\newcommand{\orcidLP}{0000-0002-9536-010X}
+\newcommand{\Department}{Institut de Neurosciences de la Timone}% (UMR 7289)}%
+\newcommand{\Affiliation}{Aix Marseille Univ, CNRS}%
+\newcommand{\Street}{27 boulevard Jean Moulin}%
+\newcommand{\PostCode}{13005}%
+\newcommand{\City}{Marseille}%
+\newcommand{\Country}{France}%
+\newcommand{\WebsiteLP}{https://laurentperrinet.github.io}%
+\newcommand{\Keywords}{time code, event-based computations, spiking neural networks, motion detection, efficient coding, logistic regression
+}
+\newcommand{\Funding}{
+This research was funded by the European Union ERA-NET CHIST-ERA 2018 research and innovation program under grant agreement ANR-19-CHR3-0008-03 (``\href{APROVIS3D}{http://aprovis3d.eu/}''). 
+LP received funding from the ANR project ANR-20-CE23-0021 (``\href{AgileNeuroBot}{https://laurentperrinet.github.io/grant/anr-anr/}'')
+and from A*Midex grant number AMX-21-RID-025
+(``\href{Polychronies}{https://laurentperrinet.github.io/grant/polychronies/}''). 
+}
+\newcommand{\Acknowledgments}{
+The authors thank Salvatore Giancani, Hugo Ladret, Camille Besnainou, Jean-Nicolas Jérémie, Miles Keating, and Adrien Fois for useful discussions during the elaboration of this work. 
+\Funding %
+%For the purpose of open access, the author has applied a CC BY public copyright licence to any Author Accepted Manuscript version arising from this submission. This research was funded, in whole or in part, by [Organisation name, Grant #]. 
+A CC-BY public copyright license has been applied by the authors to the present document and will be applied to all subsequent versions up to the Author Accepted Manuscript arising from this submission, in accordance with the grant’s open access conditions. 
+}
+\newcommand{\DataAvailability}{
+This work is made reproducible. The code reproducing the manuscript and all figures is available on~\url{https://github.com/SpikeAI/2023_GrimaldiPerrinet_HeterogeneousDelaySNN}. It also contains supplementary figures and results. Find also the associated zotero group used to gather relevant literature on the subject at~\url{https://www.zotero.org/groups/4776796/fastmotiondetection}.
+}
+%
+%% Gemini theme
 % https://github.com/anishathalye/gemini
 
 \documentclass[final]{beamer}
@@ -18,6 +55,44 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.14}
 \usepackage{anyfontsize}
+% \usepackage{natbib}
+\usepackage{siunitx}%The siunitx package provides a  set  of  tools  for  authors  to  typeset  quantities  in  aconsistent  way.
+
+\newcommand{\ms}{\si{\milli\second}}%
+
+
+ \usepackage[
+ %style=chem-acs,
+ style=numeric,						% numeric style for reference list
+ citestyle=numeric-comp,
+ %style=alphabetic-verb,
+ giveninits=false,
+ maxbibnames=1,
+ %firstinits=true,
+ %style=apa,
+ %maxcitenames=1,
+ %maxnames=3,
+ %minnames=1,
+ %maxbibnames=99,
+% %maxbibnames=99,
+% dateabbrev=true,
+% giveninits=true,
+ %uniquename=init,
+% url=false,
+% doi=false,
+% isbn=false,
+% eprint=false,
+% texencoding=utf8,
+% bibencoding=utf8,
+% autocite=superscript,
+% backend=biber,
+ %sorting=none,
+ sorting=none,
+ sortcites=false,
+ %articletitle=false
+ ]{biblatex}%
+
+ \bibliography{poster}
 
 % ====================
 % Lengths
@@ -36,9 +111,11 @@
 % Title
 % ====================
 
-\title{Some fancy title: followed by some more text}
+\title{Accurate Detection of Spiking Motifs in Neurobiological Data by Learning Heterogeneous Delays
+% of a Spiking Neural Network
+}
 
-\author{Alyssa P. Hacker \inst{1} \and Ben Bitdiddle \inst{2} \and Lem E. Tweakit \inst{2}}
+\author{\FirstLP \LastLP}
 
 \institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
 
@@ -47,7 +124,7 @@
 % ====================
 
 \footercontent{
-  \href{https://www.example.com}{https://www.example.com} \hfill
+  \href{https://laurentperrinet.github.io/publication/perrinet-24-fens/}{https://laurentperrinet.github.io/publication/perrinet-24-fens/} \hfill
   ABC Conference 2025, New York --- XYZ-1234 \hfill
   \href{mailto:alyssa.p.hacker@example.com}{alyssa.p.hacker@example.com}}
 % (can be left out to remove footer)
@@ -74,17 +151,38 @@
 
   \begin{block}{A block title}
 
-    Some block contents, followed by a diagram, followed by a dummy paragraph.
+\begin{figure}[H]
+%\centering
+\includegraphics[width=.75\textwidth]{figures/visual-latency.pdf}
+% thorpe
+% \includegraphics[width=.7\textwidth]{figures/visual-latency-estimate.jpg}%-estimate.jpg}
+\caption{
+  Latency of the different processing steps along the human visual pathway.Though the visual system is highly inter-connected, one can follow the sequence of activations whenever an image (here a yellow star) is flashed in front of the eyes. Different areas are schematically represented by ellipses, and arrows denote the fastest feed-forward activation, ordered with respect to their activation latency in $\ms$. In order, the retina is first activated (20--40~$\ms$), then the thalamus and the primary visual cortex (V1, 60--90~$\ms$). This visual information  projects to the temporal lobe to reach the infero-temporal area (IT, 150~$\ms$) for object recognition. It then reaches the prefrontal cortex (PFC, $180~\ms$), which modulates decision making to evoke the motor cortex (MC, $220~\ms$) which may mediate an action. This is eventually relayed through the spinal cord to trigger finger muscles, with latencies of about 280--400~$\ms$.}\label{fig:thorpe}
+\end{figure}
 
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}[scale=6]
-        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-      \end{tikzpicture}
-      \caption{A figure caption.}
-    \end{figure}
+
+    Some block contents, followed by a diagram, followed by a dummy paragraph. %~\textcite{Grimaldi22polychronies}
+
+%    \begin{figure}
+%      \centering
+%      \begin{tikzpicture}[scale=6]
+%        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
+%        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
+%          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
+%      \end{tikzpicture}
+%      \caption{A figure caption.}
+%    \end{figure}
+
+    \begin{figure}[H]%[t!]
+      %  \centering ~\textcite{izhikevich_polychronization_2006}
+        \includegraphics[width=0.980\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
+          \caption{\textbf{\hl{Core mechanism of polychrony detection}.} {(\textbf{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textbf{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
+          %at these different delays, and these may not be sufficient to generate a spike in either neuron.
+          {(\textbf{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
+           }
+        \label{fig:izhikevich}
+      \end{figure}
+      %
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
     eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
@@ -94,45 +192,45 @@
 
   \end{block}
 
-  \begin{block}{A block containing a list}
-
-    Nam vulputate nunc felis, non condimentum lacus porta ultrices. Nullam sed
-    sagittis metus. Etiam consectetur gravida urna quis suscipit.
-
-    \begin{itemize}
-      \item \textbf{Mauris tempor} risus nulla, sed ornare
-      \item \textbf{Libero tincidunt} a duis congue vitae
-      \item \textbf{Dui ac pretium} morbi justo neque, ullamcorper
-    \end{itemize}
-
-    Eget augue porta, bibendum venenatis tortor.
-
-  \end{block}
-
-  \begin{alertblock}{A highlighted block}
-
-    This block catches your eye, so \textbf{important stuff} should probably go
-    here.
-
-    Curabitur eu libero vehicula, cursus est fringilla, luctus est. Morbi
-    consectetur mauris quam, at finibus elit auctor ac. Aliquam erat volutpat.
-    Aenean at nisl ut ex ullamcorper eleifend et eu augue. Aenean quis velit
-    tristique odio convallis ultrices a ac odio.
-
-    \begin{itemize}
-      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
-        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
-      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
-        mi condimentum, at sollicitudin lorem viverra.
-      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
-        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
-        suscipit felis sapien vel ex.
-    \end{itemize}
-
-    Aenean tincidunt risus eros, at gravida lorem sagittis vel. Vestibulum ante
-    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
-
-  \end{alertblock}
+%  \begin{block}{A block containing a list}
+%
+%    Nam vulputate nunc felis, non condimentum lacus porta ultrices. Nullam sed
+%    sagittis metus. Etiam consectetur gravida urna quis suscipit.
+%
+%    \begin{itemize}
+%      \item \textbf{Mauris tempor} risus nulla, sed ornare
+%      \item \textbf{Libero tincidunt} a duis congue vitae
+%      \item \textbf{Dui ac pretium} morbi justo neque, ullamcorper
+%    \end{itemize}
+%
+%    Eget augue porta, bibendum venenatis tortor.
+%
+%  \end{block}
+%
+%  \begin{alertblock}{A highlighted block}
+%
+%    This block catches your eye, so \textbf{important stuff} should probably go
+%    here.
+%
+%    Curabitur eu libero vehicula, cursus est fringilla, luctus est. Morbi
+%    consectetur mauris quam, at finibus elit auctor ac. Aliquam erat volutpat.
+%    Aenean at nisl ut ex ullamcorper eleifend et eu augue. Aenean quis velit
+%    tristique odio convallis ultrices a ac odio.
+%
+%    \begin{itemize}
+%      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
+%        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
+%      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
+%        mi condimentum, at sollicitudin lorem viverra.
+%      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
+%        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
+%        suscipit felis sapien vel ex.
+%    \end{itemize}
+%
+%    Aenean tincidunt risus eros, at gravida lorem sagittis vel. Vestibulum ante
+%    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+%
+%  \end{alertblock}
 
 \end{column}
 
@@ -298,9 +396,11 @@
   \end{block}
 
   \begin{block}{References}
-
-    \nocite{*}
-    \footnotesize{\bibliographystyle{plain}\bibliography{poster}}
+    % \nocite{*}
+    \footnotesize{
+    %\bibliographystyle{plain}\bibliography{poster}
+    \printbibliography[heading=none]
+ }
 
   \end{block}
 
