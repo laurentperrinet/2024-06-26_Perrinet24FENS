@@ -7,7 +7,7 @@
 %
 \newcommand{\FirstLP}{Laurent Udo}
 \newcommand{\LastLP}{Perrinet}
-\newcommand{\AuthorLP}{\FirstLP \LastLP}
+\newcommand{\AuthorLP}{\FirstLP\ \LastLP}
 \newcommand{\EmailLP}{laurent.perrinet@univ-amu.fr}
 \newcommand{\orcidLP}{0000-0002-9536-010X}
 \newcommand{\Department}{Institut de Neurosciences de la Timone}% (UMR 7289)}%
@@ -61,38 +61,39 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 \newcommand{\ms}{\si{\milli\second}}%
 
 
-%  \usepackage[
-%  %style=chem-acs,
-%  style=numeric,						% numeric style for reference list
-%  citestyle=numeric-comp,
-%  %style=alphabetic-verb,
-%  giveninits=false,
-%  maxbibnames=1,
-%  %firstinits=true,
-%  %style=apa,
-%  %maxcitenames=1,
-%  %maxnames=3,
-%  %minnames=1,
-%  %maxbibnames=99,
-% % %maxbibnames=99,
-% % dateabbrev=true,
-% % giveninits=true,
-%  %uniquename=init,
-% % url=false,
-% % doi=false,
-% % isbn=false,
-% % eprint=false,
-% % texencoding=utf8,
-% % bibencoding=utf8,
-% % autocite=superscript,
-% % backend=biber,
-%  %sorting=none,
-%  sorting=none,
-%  sortcites=false,
-%  %articletitle=false
-%  ]{biblatex}%
+  \usepackage[
+  %style=chem-acs,
+  style=numeric,						% numeric style for reference list
+  citestyle=numeric-comp,
+  %style=alphabetic-verb,
+  giveninits=false,
+  maxbibnames=1,
+  %firstinits=true,
+  %style=apa,
+  %maxcitenames=1,
+  %maxnames=3,
+  %minnames=1,
+  %maxbibnames=99,
+ % %maxbibnames=99,
+ % dateabbrev=true,
+ % giveninits=true,
+  %uniquename=init,
+ % url=false,
+ % doi=false,
+ % isbn=false,
+ % eprint=false,
+ % texencoding=utf8,
+ % bibencoding=utf8,
+ % autocite=superscript,
+ % backend=biber,
+ backend=bibtex,
+  %sorting=none,
+  sorting=none,
+  sortcites=false,
+  %articletitle=false
+  ]{biblatex}%
 
- \usepackage{natbib}
+% \usepackage{natbib}
 
  \bibliography{2024-06-26_Perrinet24FENS}
 
@@ -117,7 +118,7 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 % of a Spiking Neural Network
 }
 
-\author{\FirstLP \LastLP}
+\author{\FirstLP\  \LastLP}
 
 \institute[shortinst]{\inst{1} Some Institute \samelineand \inst{2} Another Institute}
 
@@ -151,22 +152,17 @@ This work is made reproducible. The code reproducing the manuscript and all figu
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block title}
+  \begin{block}{Precise spiking motifs in neurobiological and neuromorphic data~\parencite{Grimaldi22polychronies}}
+
 
 \begin{figure}[H]
 %\centering
-\includegraphics[width=.75\textwidth]{figures/visual-latency.pdf}
-% thorpe
-% \includegraphics[width=.7\textwidth]{figures/visual-latency-estimate.jpg}%-estimate.jpg}
+\includegraphics[width=\textwidth]{figures/replicating_MainenSejnowski1995.pdf} 
 \caption{
-  Latency of the different processing steps along the human visual pathway.Though the visual system is highly inter-connected, one can follow the sequence of activations whenever an image (here a yellow star) is flashed in front of the eyes. Different areas are schematically represented by ellipses, and arrows denote the fastest feed-forward activation, ordered with respect to their activation latency in $\ms$. In order, the retina is first activated (20--40~$\ms$), then the thalamus and the primary visual cortex (V1, 60--90~$\ms$). This visual information  projects to the temporal lobe to reach the infero-temporal area (IT, 150~$\ms$) for object recognition. It then reaches the prefrontal cortex (PFC, $180~\ms$), which modulates decision making to evoke the motor cortex (MC, $220~\ms$) which may mediate an action. This is eventually relayed through the spinal cord to trigger finger muscles, with latencies of about 280--400~$\ms$.}\label{fig:thorpe}
+  Reproducibility of the spiking response of a neuron. 
+The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when light yellow colors when depolarized) and quantified by the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. See this~\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{notebook}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
 \end{figure}
-
-
-    Some block contents, followed by a diagram, followed by a dummy paragraph. 
     
-    ~\cite{Grimaldi22polychronies}
-    % ~\textcite{Grimaldi22polychronies}
 
 %    \begin{figure}
 %      \centering
@@ -398,13 +394,14 @@ This work is made reproducible. The code reproducing the manuscript and all figu
     in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
     auctor urna non, tempus sem.
 
+
   \end{block}
 
   \begin{block}{References}
     % \nocite{*}
     \footnotesize{
-    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
-    % \printbibliography[heading=none]
+%    \bibliographystyle{plain}\bibliography{2024-06-26_Perrinet24FENS}
+     \printbibliography[heading=none]
  }
 
   \end{block}
