@@ -2,7 +2,7 @@
 
 * abstract: Recently, there has been an increased interest in exploring the hypothesis that neural activity conveys information through precise spiking motifs. To investigate this phenomenon, several algorithms have been proposed to detect such motifs in Single Unit Activity recorded from populations of neurons. Based on the inversion of a generative model of raster plot synthesis, we present a novel detection model. This model derives an optimal detection procedure in the form of logistic regression combined with temporal convolution. Its differentiability allows for a supervised learning approach using gradient descent on the binary cross-entropy loss. To assess the model's ability to detect spiking motifs in synthetic data, numerical evaluations are performed. This analysis emphasizes the benefits of utilizing spiking motifs instead of traditional firing rate-based population codes. Our learning method is able to successfully recover synthetically generated spiking motifs, indicating its potential for further applications. In the future, we aim to extend this method to real neurobiological data, where the ground truth is unknown, to explore and detect spiking motifs in a more natural and biologically relevant context.
 
-* presented at '*FENS Forum 2024*'
+* presented at '*FENS Forum 2024*' - # PS01-26AM-128  / ABSTRACT NUMBER: 4728
 * check out https://laurentperrinet.github.io/publication/perrinet-24-fens/
 * get the poster https://laurentperrinet.github.io/publication/perrinet-24-fens/perrinet-24-fens.pdf
 
