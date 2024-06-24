@@ -163,7 +163,7 @@ This research was funded by ANR project AgileNeuRobot ANR-20-CE23-0021 (\href{ht
 \caption{
  \justifying 
  \textbf{Reproducibility of the spiking response of a biological neuron.} 
-The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when light yellow colors when depolarized) and quantified by the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. Run this~\underline{\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{online notebook}}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
+The timing of the spikes produced following the repetition of a step stimulus is less reproducible than that to a noisy stimulus. The stimulus current value over time for a step stimulus (top left) and for a noisy one (top right). Trial repetitions of a leaky integrate-and-fire neuron stimulated by the stimulus on the upper row (middle row). Membrane potential is represented by dark blue color when low and with yellow colors when depolarized and we show the average firing rate across trials (lower row). While this seems paradoxical at first sight, it highlights the consequence of using the same frozen noise at each repetition and highlights the highly reproducible pattern of spikes when it is driven by a highly dynamic input. Run this~\underline{\href{https://github.com/laurentperrinet/2022_UE-neurosciences-computationnelles/blob/master/C_MainenSejnowski1995_Perrinet.ipynb}{online notebook}}  for a replication of the results from~\parencite{mainen_reliability_1995} using a simple LIF model.}\label{fig:mainen}
 \end{figure}
     
 
@@ -182,8 +182,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
         \includegraphics[width=0.900\linewidth]{figures/izhikevich.pdf}%png}% https://www.overleaf.com/5625872443qpcwrkssgbsf
           \caption{
            \justifying 
-\textbf{Core mechanism of polychrony detection~\parencite{izhikevich_polychronization_2006}.} {(\textit{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textit{Middle})}~If three synchronous pulses are emitted from presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted, as this is not sufficient to reach the membrane threshold of the post synaptic neuron, so no output spike is emitted.
-          %at these different delays, and these may not be sufficient to generate a spike in either neuron.
+\textbf{Core mechanism of polychrony detection~\parencite{izhikevich_polychronization_2006}.} {(\textit{Left})}~In this example, three presynaptic neurons denoted \textit{b}, \textit{c} and, \textit{d} are fully connected to two post-synaptic neurons \textit{a} and \textit{e}, with different delays of respectively $1$, $5$, and $9~\ms$ for \textit{a} and  $8$, $5$, and $1~\ms$ for \textit{e}. {(\textit{Middle})}~If three spikes are emitted  synchronously from the presynaptic neurons, this will generate post-synaptic potentials that will reach \textit{a} and \textit{e} asynchronously because of the heterogeneous delays, and they may not be sufficient to reach the membrane threshold in either of the post-synaptic neurons; therefore, no spike will be emitted.
           {(\textit{Right})}~If the pulses are emitted from presynaptic neurons such that, taking into account the delays, they reach the post-synaptic neuron \textit{a} at the same time (here, at $t=10~\ms$),  the post-synaptic potentials evoked by the three pre-synaptic neurons sum up, causing the voltage threshold to be crossed and thus to the emission of an output spike (red color), while none is emitted from post-synaptic neuron \textit{e}.
            }
         \label{fig:izhikevich}
@@ -309,7 +308,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
     \centering
     \includegraphics[width=0.95\linewidth]{figures/motion_task.pdf}
     \caption{ \justifying 
-       \textbf{ Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps .% (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively, in the left inset).
+       \textbf{ Motion Detection Task.} To generate realistic event-based dynamic scenes, we mimic the effect of minute saccadic eye movements on a large natural scene ($1024\times1024$) by extracting an image ($128\times128$) which center is moving dynamically according to a jagged random walk. \textit{(Left)}~We show an instance of this trajectory (with a length of $200~\ms$, green line) superimposed on the luminance contrasts observed at time step $t=15~\ms$. \textit{(Right)}~The dynamics of this image, translated according to the saccadic trajectory, produces a naturalistic movie, which is then transformed into an event-based representation. We show snapshots of the resulting synthetic event stream at different time steps (from $t=15~\ms$ to $t=19~\ms$, these frames are marked on the trajectory by a white and black dot, respectively).
          Mimicking the response of ganglion cells in the retina, this representation encodes at each pixel all-or-none increases or decreases in luminance, i.e., ON (red) and OFF (blue) spikes. In the lower left corner of the snapshots, we show the corresponding instantaneous motion vector (red arrow). %Note the change in the direction of motion between the third and fourth frames, and also that contours parallel to the motion produce fewer luminance changes, the so-called aperture problem, and thus relatively fewer spikes.
         }
     \label{fig:motion_task}
@@ -318,9 +317,7 @@ The timing of the spikes produced following the repetition of a step stimulus is
 
 \begin{columns}[t]
 %\separatorcolumn
-
 \begin{column}{.49\colwidth}
-
 \begin{figure}
     {\centering
     %\vspace{-3cm}
@@ -336,12 +333,12 @@ The timing of the spikes produced following the repetition of a step stimulus is
 %
 \separatorcolumn
 
-\begin{column}{.46\colwidth}
+\begin{column}{.48\colwidth}
 \begin{figure}%[h!]
     \centering
-    \includegraphics[width=0.99\linewidth]{figures/quant_accuracy.pdf}
+    \includegraphics[width=0.925\linewidth]{figures/quant_accuracy.pdf}
     \caption{\justifying 
-        Accuracy as a function of computational load for the HD-SNN model (blue dots) with error bars indicating the 5\% - 95\% quantiles and a sigmoid fit (blue line). The relative computational load (on a logarithmic axis) is controlled by changing the percentage of nonzero weights relative to the dense convolution kernel. If we shorten the length of the kernel by using only the weights at the shortest delays, the accuracy quickly drops. %However, if we prune the lowest coefficients from the whole kernel, we observe a stable accuracy value, with a drop to half-saturation observed at about $670$ times fewer computations.
+        Accuracy as a function of computational load for the HD-SNN model (blue dots) with error bars indicating the 5\% - 95\% quantiles. The relative computational load (on a logarithmic axis) is controlled by changing the percentage of nonzero weights relative to the dense convolution kernel. If we use only the weights at the shortest delays, the accuracy quickly drops. However, if we prune the lowest coefficients, we observe a stable accuracy value, with a  half-saturation observed at $\approx 670$ less computations.
         }
     \label{fig:accuracy}
 \end{figure}
