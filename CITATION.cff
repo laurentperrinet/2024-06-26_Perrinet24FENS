@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the accompanying publication (preferred-citation below).
+type: software
+title: Accurate Detection of Spiking Motifs in Neurobiological Data by Learning Heterogeneous Delays of
+  a Spiking Neural Network
+authors:
+- family-names: Perrinet
+  given-names: Laurent U
+  orcid: https://orcid.org/0000-0002-9536-010X
+repository-code: https://github.com/laurentperrinet/2024-06-26_Perrinet24FENS
+url: https://laurentperrinet.github.io/publication/perrinet-24-fens/
+license: MIT
+keywords:
+- neuromorphic-computing
+- predictive-coding
+- spiking-neural-networks
+preferred-citation:
+  type: conference-paper
+  title: Accurate Detection of Spiking Motifs in Neurobiological Data by Learning Heterogeneous Delays
+    of a Spiking Neural Network
+  authors:
+  - family-names: Perrinet
+    given-names: Laurent U
+    orcid: https://orcid.org/0000-0002-9536-010X
+  conference:
+    name: Proceedings of the FENS Forum 2024
+  year: 2024
+  url: https://laurentperrinet.github.io/publication/perrinet-24-fens/
